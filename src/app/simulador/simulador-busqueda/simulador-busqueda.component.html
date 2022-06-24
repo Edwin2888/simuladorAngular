@@ -1,0 +1,58 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Simulador credito</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="calculaForm" (ngSubmit)="calcularCredito()">
+        <mat-grid-list cols="3" rowHeight="4:1">
+          <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Capital</mat-label>
+              <input type="number" 
+                matInput 
+                formControlName="capital" 
+                autocomplete="off"
+                placeholder="$2'500.000">
+              <mat-error *ngIf="calculaForm.get('capital')?.errors">
+                Capital es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+          <mat-grid-tile>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Plazo</mat-label>
+              <mat-select formControlName="plazo" name="food" autocomplete="off">
+                <mat-option *ngFor="let food of plazos" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </mat-grid-tile>
+          <mat-grid-tile>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Porcentaje tasa interes</mat-label>
+              <input type="number" 
+                matInput 
+                formControlName="intereses"
+                autocomplete="off"
+                placeholder="Ex. 27%">
+              <!-- <mat-error *ngIf="capitalFormControl.hasError('min') && !capitalFormControl.hasError('required')">
+                Please enter a valid capital
+              </mat-error> -->
+              <mat-error *ngIf="calculaForm.get('intereses')?.errors">
+                Tasa de interes efectiva anual es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-divider></mat-divider>
+        <!-- <button type="submit" mat-button color="primary">Calcular</button> -->
+        <button type="submit" [disabled]="calculaForm.invalid" mat-button color="primary">Calcular</button>
+        
+      </form>
+    </mat-card-content>
+</mat-card>
