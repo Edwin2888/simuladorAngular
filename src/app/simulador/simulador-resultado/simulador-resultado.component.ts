@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CalculoInteres } from '../models/calculo.model';
-import { AppState } from '../../app.reducer';
+import { AppState } from '../store/app.reducer';
 
 @Component({
   selector: 'app-simulador-resultado',
