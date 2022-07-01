@@ -14,7 +14,7 @@ export const initialState:CalculoInteres[] = [];
 export const simuladorReducer = createReducer(
     initialState,
     on(calcularAmortizacion, (state,{simulacion}) => {
-        return [...state.concat(simulacion)];
+        return [...simulacion];
     }),
     on(cleanCalculo, (state) => [])
 );

@@ -12,7 +12,7 @@ export class SimuladorService {
 
   // private intereEA: Subject<number>;
   // private simulacion: Subject<CalculoInteres[]>;
-  constructor(private store: Store<AppState>) { 
+  constructor() { 
     // this.intereEA = new Subject();
     // this.simulacion = new Subject();
   }
@@ -44,7 +44,7 @@ export class SimuladorService {
   //   return this.simulacion;
   // }
   calculaCredito(dataFiltro: CalculoForm):CalculoInteres[] {
-    this.store.dispatch(cleanCalculo());
+    // this.store.dispatch(cleanCalculo());
     let aTable : CalculoInteres[] = [];
     // Calculamos el interes Efectivo Anual
     let nTasaInteres = this.interesEA(dataFiltro.intereses / 100);
